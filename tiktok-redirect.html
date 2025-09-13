@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open in Browser for Better Experience</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        p {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+        .button {
+            display: inline-block;
+            background: #ff4b5c;
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 75, 92, 0.4);
+            cursor: pointer;
+        }
+        .button:hover {
+            background: #ff2e43;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 75, 92, 0.6);
+        }
+        .url-box {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 16px;
+        }
+        .instructions {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>For the Best Experience</h1>
+        <p>We've detected that you're accessing this link from TikTok. For full functionality and a better experience, we recommend opening this page in your web browser.</p>
+        
+        <div class="url-box" id="urlDisplay">https://localhornyneighbours.com</div>
+        
+        <a href="https://localhornyneighbours.com" class="button" id="targetLink">Open in Browser</a>
+        
+        <div class="instructions">
+            <h3>How to open in your browser:</h3>
+            <ol>
+                <li>Tap the "Open in Browser" button above</li>
+                <li>If prompted, select "Open in Browser" or "Open in Safari/Chrome"</li>
+                <li>Alternatively, copy the URL above and paste it into your browser</li>
+            </ol>
+        </div>
+        
+        <div class="footer">
+            <p>You'll be automatically redirected to the destination after opening in browser</p>
+        </div>
+    </div>
+
+    <script>
+        // 设置目标URL
+        const targetUrl = "https://localhornyneighbours.com";
+        
+        // 获取页面元素
+        const targetLink = document.getElementById('targetLink');
+        const urlDisplay = document.getElementById('urlDisplay');
+        
+        // 设置目标URL
+        targetLink.href = targetUrl;
+        urlDisplay.textContent = targetUrl;
+        
+        // 检查是否在TikTok应用内
+        const isInApp = /tiktok|twitter|instagram|fb|facebook|line/i.test(navigator.userAgent);
+        
+        // 如果不在应用内浏览器，则自动跳转
+        if (!isInApp) {
+            window.location.href = targetUrl;
+        }
+    </script>
+</body>
+</html>
